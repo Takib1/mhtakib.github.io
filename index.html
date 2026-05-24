@@ -3,1294 +3,681 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Academic portfolio of Mobasher Hossain Takib — prospective PhD candidate in Industrial Engineering & Operations Research, specializing in supply chain optimization and stochastic programming.">
+<meta name="description" content="Academic portfolio of Mobasher Hossain Takib — prospective MS candidate in Industrial Engineering, specializing in supply chain optimization and stochastic programming.">
 <title>Mobasher Hossain Takib — Academic Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf8f3;
-    --bg-alt: #f2ede2;
-    --paper: #ffffff;
-    --ink: #1a1a1a;
-    --ink-soft: #3a3a3a;
-    --ink-muted: #6b6b6b;
-    --ink-faint: #9a9a9a;
-    --accent: #8b3a1d;
-    --accent-soft: #c97142;
-    --rule: #d4cfc1;
-    --rule-soft: #e8e3d4;
-    --font-serif: "Cormorant Garamond", "Georgia", serif;
-    --font-sans: "Inter", -apple-system, sans-serif;
-    --font-mono: "JetBrains Mono", monospace;
+    --ink: #1a1a18;
+    --muted: #6b6b65;
+    --rule: #d6d4cc;
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --accent: #2d4a3e;
+    --accent-light: #e8efe8;
+    --mono: 'DM Mono', monospace;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', sans-serif;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.6;
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
   }
 
-  /* Subtle paper texture overlay */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: 
-      radial-gradient(circle at 25% 30%, rgba(139, 58, 29, 0.03) 0%, transparent 40%),
-      radial-gradient(circle at 75% 70%, rgba(139, 58, 29, 0.02) 0%, transparent 40%);
-    pointer-events: none;
-    z-index: 0;
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,245,240,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    display: flex; align-items: center; justify-content: space-between;
+    height: 3.25rem;
   }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2.5rem;
-    position: relative;
-    z-index: 1;
+  .nav-brand {
+    font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
+    color: var(--accent); letter-spacing: 0.08em; text-decoration: none;
   }
-
-  /* ============ HEADER ============ */
-  .nav {
-    position: sticky;
-    top: 0;
-    background: rgba(250, 248, 243, 0.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--rule-soft);
-    z-index: 100;
-    padding: 1rem 0;
-  }
-
-  .nav-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2.5rem;
-  }
-
-  .nav-mono {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    color: var(--ink-soft);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: color 0.25s;
-    position: relative;
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    color: var(--muted); text-decoration: none; letter-spacing: 0.06em;
+    text-transform: uppercase; transition: color 0.2s;
   }
+  .nav-links a:hover { color: var(--ink); }
 
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: width 0.3s;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a:hover::after { width: 100%; }
-
-  /* ============ HERO ============ */
+  /* HERO */
   .hero {
-    padding: 7rem 0 5rem;
-    border-bottom: 1px solid var(--rule);
-    position: relative;
+    padding: clamp(5rem, 12vw, 9rem) clamp(1.5rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem);
+    max-width: 72rem; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end;
   }
-
   .hero-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.1s forwards;
+    font-family: var(--mono); font-size: 0.72rem; color: var(--accent);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
   }
-
-  .hero-label::before {
-    content: "";
-    width: 30px;
-    height: 1px;
-    background: var(--accent);
+  .hero-label::before { content: ''; width: 2rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500; line-height: 1.1; letter-spacing: -0.01em;
   }
-
-  .hero-name {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.3s forwards;
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    margin-top: 1.5rem; font-size: 1.0625rem; color: var(--muted);
+    font-family: var(--sans); font-weight: 300; line-height: 1.6; max-width: 36ch;
   }
-
-  .hero-name em {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 400;
-  }
-
-  .hero-tagline {
-    font-family: var(--font-serif);
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--ink-soft);
-    margin-bottom: 2.5rem;
-    max-width: 720px;
-    line-height: 1.4;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.5s forwards;
-  }
-
   .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 2.5rem;
-    row-gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.7s forwards;
+    font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+    display: flex; flex-direction: column; gap: 0.4rem;
   }
+  .hero-meta a { color: var(--muted); text-decoration: none; }
+  .hero-meta a:hover { color: var(--ink); }
 
-  .hero-meta a {
-    color: var(--ink-muted);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-    transition: color 0.25s, border-color 0.25s;
+  /* STATS */
+  .stats {
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    max-width: 72rem; margin: 0 auto;
   }
-
-  .hero-meta a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    margin-top: 3rem;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.9s forwards;
-  }
-
-  .hero-stat {
-    padding: 1.5rem 1rem 1.5rem 0;
-    border-right: 1px solid var(--rule-soft);
-  }
-
-  .hero-stat:last-child { border-right: none; }
-
-  .hero-stat-value {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-
-  .hero-stat-label {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ============ SECTION ============ */
-  section {
-    padding: 6rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .section-header {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
-    align-items: baseline;
-  }
-
-  .section-num {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
-
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-  }
-
-  .section-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  /* ============ ABOUT ============ */
-  .about-body {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 4rem;
-  }
-
-  .about-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    padding-top: 0.5rem;
-  }
-
-  .about-content p {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    margin-bottom: 1.5rem;
-  }
-
-  .about-content p:last-child { margin-bottom: 0; }
-
-  .about-content em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .about-content strong {
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  /* ============ RESEARCH INTERESTS ============ */
-  .interests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1px;
-    background: var(--rule);
-    border: 1px solid var(--rule);
-  }
-
-  .interest {
-    background: var(--bg);
-    padding: 2rem 1.75rem;
-    transition: background 0.3s;
-    position: relative;
-  }
-
-  .interest:hover {
-    background: var(--paper);
-  }
-
-  .interest-num {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .interest-title {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-
-  .interest-desc {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--ink-muted);
-  }
-
-  /* ============ EXPERIENCE ============ */
-  .timeline-entry {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 4rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--rule-soft);
-  }
-
-  .timeline-entry:last-child { border-bottom: none; }
-
-  .timeline-side {
-    padding-top: 0.5rem;
-  }
-
-  .timeline-date {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  .timeline-location {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--ink-faint);
-  }
-
-  .timeline-role {
-    font-family: var(--font-serif);
-    font-size: 1.75rem;
-    font-weight: 500;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
-    letter-spacing: -0.01em;
-  }
-
-  .timeline-org {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: var(--accent);
-    margin-bottom: 1.2rem;
-    font-weight: 500;
-  }
-
-  .timeline-desc {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    max-width: 640px;
-  }
-
-  .timeline-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .timeline-list li {
-    font-family: var(--font-sans);
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    line-height: 1.65;
-    padding-left: 1.25rem;
-    position: relative;
-    margin-bottom: 0.5rem;
-  }
-
-  .timeline-list li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-  }
-
-  .timeline-list strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
-
-  /* ============ EDUCATION ============ */
-  .edu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
-
-  .edu-card {
-    padding: 2.5rem;
+  .stat {
+    padding: 2rem clamp(1.5rem, 4vw, 3rem);
     border-right: 1px solid var(--rule);
   }
-
-  .edu-card:last-child { border-right: none; }
-
-  .edu-degree {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
-    line-height: 1.3;
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--serif); font-size: 2.5rem; font-weight: 500;
+    color: var(--accent); line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--sans); font-size: 0.72rem; color: var(--muted);
+    margin-top: 0.35rem; text-transform: uppercase; letter-spacing: 0.06em;
   }
 
-  .edu-school {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
+  /* MAIN */
+  main { max-width: 72rem; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+
+  /* SECTION */
+  section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; border-bottom: 1px solid var(--rule); }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono); font-size: 0.68rem; color: var(--muted);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 3rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label span { color: var(--accent); }
+
+  .section-grid { display: grid; grid-template-columns: 2fr 5fr; gap: 4rem; }
+
+  .section-title {
+    font-family: var(--serif); font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400; line-height: 1.2;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ABOUT */
+  .about-body { font-size: 1.0625rem; line-height: 1.85; }
+  .about-body p + p { margin-top: 1.25rem; }
+  .about-body strong { font-weight: 600; }
+  .soi-tag {
+    display: inline-block; font-family: var(--mono); font-size: 0.65rem;
+    background: var(--accent-light); color: var(--accent);
+    padding: 0.2rem 0.6rem; border-radius: 2px; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 1.25rem;
   }
 
-  .edu-detail {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--rule-soft);
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
+  /* RESEARCH */
+  .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .research-card {
+    background: var(--card); border: 1px solid var(--rule); padding: 1.75rem;
   }
-
-  .edu-detail:last-child { border-bottom: none; }
-
-  .edu-label {
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.7rem;
+  .research-num {
+    font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
+    margin-bottom: 0.75rem; letter-spacing: 0.08em;
   }
-
-  .edu-value {
-    color: var(--ink);
-    font-weight: 500;
+  .research-card h3 {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+    margin-bottom: 0.75rem; line-height: 1.35;
   }
+  .research-card p { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
-  /* ============ PUBLICATION ============ */
-  .pub-entry {
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--rule-soft);
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 4rem;
+  /* EDUCATION */
+  .edu-block { margin-bottom: 3rem; }
+  .edu-block:last-child { margin-bottom: 0; }
+  .edu-institution { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; margin-bottom: 0.25rem; }
+  .edu-degree { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; }
+  .edu-table { width: 100%; border-collapse: collapse; }
+  .edu-table td {
+    font-family: var(--sans); font-size: 0.82rem; padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule); vertical-align: top;
   }
+  .edu-table td:first-child { color: var(--muted); width: 45%; }
+  .edu-table td:last-child { font-weight: 500; }
+  .highlight-row td { color: var(--accent) !important; font-weight: 600 !important; }
 
-  .pub-entry:last-child { border-bottom: none; }
-
-  .pub-meta {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    padding-top: 0.5rem;
+  .scores-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+  .score-block { border: 1px solid var(--rule); padding: 1.25rem 1.5rem; }
+  .score-block-title {
+    font-family: var(--mono); font-size: 0.68rem; color: var(--accent);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
   }
+  .score-row {
+    display: flex; justify-content: space-between;
+    font-family: var(--sans); font-size: 0.82rem; padding: 0.3rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-row span:last-child { font-weight: 500; }
 
+  /* EXPERIENCE */
+  .exp-entry { margin-bottom: 3.5rem; }
+  .exp-entry:last-child { margin-bottom: 0; }
+  .exp-meta {
+    font-family: var(--mono); font-size: 0.68rem; color: var(--muted);
+    letter-spacing: 0.06em; margin-bottom: 0.25rem;
+  }
+  .exp-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; margin-bottom: 0.1rem; }
+  .exp-org { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+  .exp-intro {
+    font-family: var(--sans); font-size: 0.875rem; color: var(--muted);
+    font-style: italic; margin-bottom: 1rem; line-height: 1.65;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .exp-bullets li {
+    font-family: var(--sans); font-size: 0.875rem; line-height: 1.65;
+    padding-left: 1.25rem; position: relative; color: #3a3a36;
+  }
+  .exp-bullets li::before {
+    content: '–'; position: absolute; left: 0; color: var(--accent);
+  }
+  .exp-bullets strong { color: var(--ink); font-weight: 600; }
+
+  /* PUBLICATIONS */
+  .pub-card {
+    background: var(--card); border: 1px solid var(--rule);
+    padding: 2rem; margin-bottom: 1.5rem;
+  }
+  .pub-card:last-child { margin-bottom: 0; }
   .pub-type {
-    color: var(--accent);
-    margin-bottom: 0.4rem;
+    font-family: var(--mono); font-size: 0.65rem; color: var(--accent);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
   }
-
-  .pub-title {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.3;
-    color: var(--ink);
-    margin-bottom: 0.6rem;
-    font-style: italic;
-  }
-
-  .pub-authors {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    margin-bottom: 0.4rem;
-  }
-
+  .pub-type::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
   .pub-venue {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    color: var(--ink-muted);
-    margin-bottom: 1rem;
+    font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-bottom: 0.5rem;
+  }
+  .pub-title {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 500;
+    line-height: 1.3; margin-bottom: 0.4rem;
+  }
+  .pub-authors {
+    font-family: var(--sans); font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;
+  }
+  .pub-authors strong { color: var(--accent); font-weight: 600; }
+  .pub-abstract {
+    font-family: var(--sans); font-size: 0.85rem; color: #4a4a45; line-height: 1.7;
   }
 
-  .pub-summary {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
+  /* SKILLS */
+  .skills-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .skill-group { margin-bottom: 1.5rem; }
+  .skill-group-title {
+    font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule);
   }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag {
+    font-family: var(--sans); font-size: 0.78rem; color: var(--muted);
+    padding: 0.15rem 0; line-height: 1.8;
+  }
+  .skill-tag + .skill-tag::before { content: ' · '; color: var(--rule); }
 
-  /* ============ SKILLS ============ */
-  .skills-table {
-    width: 100%;
+  /* HONORS */
+  .honors-section { display: flex; flex-direction: column; gap: 0; }
+  .honor-item {
+    display: grid; grid-template-columns: 5rem 1fr;
+    padding: 1rem 0; border-bottom: 1px solid var(--rule); gap: 1.5rem;
+    align-items: start;
+  }
+  .honor-item:last-child { border-bottom: none; }
+  .honor-year { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); padding-top: 0.1rem; }
+  .honor-body { font-family: var(--sans); font-size: 0.875rem; line-height: 1.6; }
+  .honor-body strong { display: block; font-weight: 600; color: var(--ink); }
+  .honor-body span { color: var(--muted); font-size: 0.82rem; }
+
+  /* LEADERSHIP */
+  .lead-entries { display: flex; flex-direction: column; gap: 0; }
+  .lead-entry {
+    display: grid; grid-template-columns: 5rem 1fr;
+    padding: 1.5rem 0; border-bottom: 1px solid var(--rule); gap: 1.5rem;
+    align-items: start;
+  }
+  .lead-entry:last-child { border-bottom: none; }
+  .lead-period { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.6; }
+  .lead-body {}
+  .lead-role { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; margin-bottom: 0.1rem; }
+  .lead-org { font-family: var(--sans); font-size: 0.82rem; color: var(--accent); margin-bottom: 0.5rem; }
+  .lead-desc { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+  /* CONTACT FOOTER */
+  .contact-banner {
     border-top: 1px solid var(--rule);
-  }
-
-  .skill-row {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 3rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--rule-soft);
-    align-items: baseline;
-  }
-
-  .skill-category {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  .skill-items {
-    font-family: var(--font-sans);
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    line-height: 1.7;
-  }
-
-  .skill-items .pill {
-    display: inline-block;
-    margin-right: 0.4rem;
-    color: var(--ink-soft);
-  }
-
-  .skill-items .pill::after {
-    content: "·";
-    margin-left: 0.4rem;
-    color: var(--ink-faint);
-  }
-
-  .skill-items .pill:last-child::after { content: ""; }
-
-  /* ============ HONORS & PROJECTS ============ */
-  .twocol {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-
-  .twocol h3 {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .item-list {
-    list-style: none;
-  }
-
-  .item-list li {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--rule-soft);
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-
-  .item-list li:last-child { border-bottom: none; }
-
-  .item-list strong {
-    display: block;
-    color: var(--ink);
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-  }
-
-  .item-list em {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: var(--accent);
-    font-size: 0.85rem;
-  }
-
-  /* ============ CONTACT ============ */
-  .contact-section {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
     text-align: center;
-    padding: 8rem 0;
-    background: var(--bg-alt);
-    margin-top: 0;
-    border-bottom: none;
   }
-
-  .contact-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
+  .contact-banner h2 {
+    font-family: var(--serif); font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 400; margin-bottom: 0.5rem; line-height: 1.2;
   }
-
-  .contact-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 500;
-    line-height: 1.05;
-    color: var(--ink);
-    margin-bottom: 2.5rem;
-    letter-spacing: -0.02em;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+  .contact-banner h2 em { font-style: italic; color: var(--accent); }
+  .contact-banner p {
+    font-family: var(--sans); font-size: 0.875rem; color: var(--muted); margin-bottom: 2rem;
   }
-
-  .contact-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .contact-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-  }
-
+  .contact-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
   .btn {
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    transition: all 0.25s;
-    font-weight: 500;
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    background: transparent;
+    display: inline-block; font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+    padding: 0.7rem 1.75rem; text-decoration: none; letter-spacing: 0.04em;
+    border: 1px solid var(--ink); color: var(--ink); transition: all 0.2s;
+  }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+  .btn.secondary { border-color: var(--rule); color: var(--muted); }
+  .btn.secondary:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .contact-meta {
+    display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
   }
 
-  .btn:hover {
-    background: var(--ink);
-    color: var(--bg);
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    border-color: var(--accent);
-  }
-
-  .btn-primary:hover {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: var(--bg);
-  }
-
-  .contact-details {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-  }
-
-  .contact-details a {
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: color 0.25s;
-  }
-
-  .contact-details a:hover { color: var(--accent); }
-
-  /* ============ FOOTER ============ */
   footer {
-    padding: 2.5rem 0;
-    background: var(--bg-alt);
+    text-align: center; padding: 1.25rem;
+    font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
     border-top: 1px solid var(--rule);
   }
 
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    color: var(--ink-faint);
-    text-transform: uppercase;
-  }
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width: 768px) {
-    .container { padding: 0 1.5rem; }
-    .nav-inner { padding: 0 1.5rem; }
-    .nav-mono { display: none; }
-    .nav-links { gap: 1.2rem; }
-    .nav-links a { font-size: 0.65rem; }
-    
-    .hero { padding: 4rem 0 3rem; }
-    .hero-meta { gap: 0 1.5rem; font-size: 0.7rem; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .hero-stat { border-right: none; border-bottom: 1px solid var(--rule-soft); }
-    
-    section { padding: 4rem 0; }
-    .section-header { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
-    .about-body { grid-template-columns: 1fr; gap: 1.5rem; }
-    .about-content p { font-size: 1.15rem; }
-    
-    .timeline-entry { grid-template-columns: 1fr; gap: 1.2rem; padding: 2rem 0; }
-    .timeline-role { font-size: 1.4rem; }
-    
-    .edu-grid { grid-template-columns: 1fr; }
-    .edu-card { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.75rem; }
-    .edu-card:last-child { border-bottom: none; }
-    
-    .pub-entry { grid-template-columns: 1fr; gap: 1rem; }
-    
-    .skill-row { grid-template-columns: 1fr; gap: 0.5rem; }
-    
-    .twocol { grid-template-columns: 1fr; gap: 2.5rem; }
-    
-    .contact-buttons { flex-direction: column; align-items: stretch; }
-    .contact-details { flex-direction: column; gap: 0.8rem; }
-  }
-
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Selection */
-  ::selection {
-    background: var(--accent);
-    color: var(--bg);
+  @media (max-width: 800px) {
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(2) { border-right: none; }
+    .section-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .research-grid { grid-template-columns: 1fr; }
+    .scores-grid { grid-template-columns: 1fr; }
+    .skills-cols { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="nav-mono">M.H. Takib · 2026</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
+<nav>
+  <a href="#" class="nav-brand">M.H. Takib · 2026</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="container">
-    <div class="hero-label">Prospective Doctoral Candidate — 2027</div>
-    <h1 class="hero-name">Mobasher Hossain<br><em>Takib</em></h1>
-    <p class="hero-tagline">
-      Industrial engineer translating three years of frontline supply-chain decision-making into rigorous research on optimization under uncertainty.
-    </p>
-    <div class="hero-meta">
-      <span>Dhaka, Bangladesh</span>
-      <a href="mailto:mobasherhossaintakib@gmail.com">mobasherhossaintakib@gmail.com</a>
-      <a href="https://www.linkedin.com/in/mobasher-hossain-takib/" target="_blank" rel="noopener">LinkedIn</a>
-      <span>+880 1795 563511</span>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-value">3<span style="font-size:1rem;color:var(--ink-muted);"> yrs</span></div>
-        <div class="hero-stat-label">Supply Chain Industry</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">94</div>
-        <div class="hero-stat-label">SKUs Managed</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">15<span style="font-size:1rem;color:var(--ink-muted);">%</span></div>
-        <div class="hero-stat-label">Inventory Expiry Reduction</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">1</div>
-        <div class="hero-stat-label">Springer Publication</div>
-      </div>
-    </div>
+<div class="hero">
+  <div>
+    <div class="hero-label">Prospective MS Candidate — 2026</div>
+    <h1>Mobasher Hossain <em>Takib</em></h1>
+    <p class="hero-sub">Industrial engineer translating supply chain planning experience into rigorous research on optimization under uncertainty.</p>
   </div>
-</header>
+  <div class="hero-meta">
+    <span>Dhaka, Bangladesh</span>
+    <a href="mailto:mobasherhossaintakib@gmail.com">mobasherhossaintakib@gmail.com</a>
+    <a href="https://www.linkedin.com/in/mobasher-hossain-takib/" target="_blank">LinkedIn ↗</a>
+    <span>+880 1795 563511</span>
+  </div>
+</div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 01 — About</div>
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">3</div>
+    <div class="stat-label">Yrs Supply Chain Industry</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">15%</div>
+    <div class="stat-label">Inventory Expiry Reduction</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">Kinaxis</div>
+    <div class="stat-label">Supply Planning Platform</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Springer Publication</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- § 01 ABOUT -->
+  <section id="about">
+    <div class="section-label"><span>§ 01</span> — About</div>
+    <div class="section-grid">
       <h2 class="section-title">A practitioner moving toward <em>theory</em></h2>
-    </div>
-    <div class="about-body reveal">
-      <div class="about-label">Statement<br>of Interest</div>
-      <div class="about-content">
-        <p>
-          I am an Industrial and Production Engineering graduate from the <strong>Military Institute of Science and Technology</strong> (MIST), Bangladesh, currently serving as a Supply Service Executive at <strong>Reckitt Benckiser Bangladesh</strong>. Over the past three years I have managed the import network for ninety-four SKUs across twelve international suppliers — and watched the limits of the heuristics I rely on every day.
-        </p>
-        <p>
-          That gap between <em>what works in practice</em> and <em>what can be proven optimal</em> is what draws me toward doctoral research. My interests sit at the intersection of <strong>mixed-integer and network optimization</strong>, <strong>stochastic and distributionally robust programming</strong>, and <strong>data-driven decision modeling</strong> — areas where the mathematical work has direct consequence for the kinds of supplier-selection, inventory, and routing problems I face professionally.
-        </p>
-        <p>
-          I am applying for Spring and Fall 2027 admission to PhD programs in Industrial Engineering, Operations Research, and Systems Engineering, and I welcome conversation with faculty whose work intersects these areas.
-        </p>
+      <div class="about-body">
+        <div class="soi-tag">Statement of Interest</div>
+        <p>Growing up watching my father — a shrimp supplier — return with one recurring question: <em>"When will the truck arrive, and what is the condition of the shrimp?"</em> Those words captured the supply chain inefficiencies and poor logistics across Bangladesh that have stayed with me ever since, and committed me to tackling problems like transportation optimization, inventory control, and demand planning.</p>
+        <p>I am an <strong>Industrial and Production Engineering</strong> graduate from the <strong>Military Institute of Science and Technology (MIST)</strong>, currently serving as a Supply Services Executive at <strong>Reckitt Benckiser Bangladesh PLC</strong>. Over three years I have managed international supply planning operations and worked with Reckitt's global team on the implementation of <strong>Kinaxis RapidResponse</strong> — enabling real-time supply chain visibility, AI-powered forecasting, and scenario-based planning.</p>
+        <p>That gap between <em>what works in practice</em> and <em>what can be proven optimal</em> is what draws me toward doctoral research. My interests sit at the intersection of <strong>mixed-integer and network optimization</strong>, <strong>stochastic and distributionally robust programming</strong>, and <strong>data-driven decision modeling</strong> — areas where the mathematical work has direct consequence for the kinds of supplier-selection, inventory, and routing problems I face professionally.</p>
+        <p>I am applying for 2027 admission to PhD programs in Industrial Engineering, Operations Research, and Systems Engineering, and I welcome conversation with faculty whose work intersects these areas.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- RESEARCH INTERESTS -->
-<section id="research">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 02 — Research</div>
+  <!-- § 02 RESEARCH -->
+  <section id="research">
+    <div class="section-label"><span>§ 02</span> — Research</div>
+    <div class="section-grid">
       <h2 class="section-title">Where I want to go <em>deeper</em></h2>
-    </div>
-    <div class="interests-grid reveal">
-      <div class="interest">
-        <span class="interest-num">01</span>
-        <h3 class="interest-title">Mixed-Integer & Network Optimization</h3>
-        <p class="interest-desc">
-          Strengthened formulations for large-scale supplier selection, facility location, and routing problems where combinatorial structure makes naive models intractable.
-        </p>
-      </div>
-      <div class="interest">
-        <span class="interest-num">02</span>
-        <h3 class="interest-title">Stochastic & Distributionally Robust Optimization</h3>
-        <p class="interest-desc">
-          Decision-making under demand and supply uncertainty — particularly two-stage and multi-stage frameworks where the distribution itself is uncertain.
-        </p>
-      </div>
-      <div class="interest">
-        <span class="interest-num">03</span>
-        <h3 class="interest-title">Optimization Under Uncertainty in Large-Scale Systems</h3>
-        <p class="interest-desc">
-          Decomposition algorithms — Benders, Lagrangian, column generation — that make industrial-scale stochastic problems computationally tractable.
-        </p>
-      </div>
-      <div class="interest">
-        <span class="interest-num">04</span>
-        <h3 class="interest-title">Data-Driven Decision Modeling</h3>
-        <p class="interest-desc">
-          Integration of machine learning with optimization for prescriptive analytics — moving from forecast-then-optimize toward jointly learned policies.
-        </p>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="research-num">01</div>
+          <h3>Supply Chain Optimization & Network Models</h3>
+          <p>Strengthened formulations for supplier selection, inventory planning, and routing — including multi-echelon networks where combinatorial structure makes naive models intractable.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-num">02</div>
+          <h3>Stochastic & Distributionally Robust Optimization</h3>
+          <p>Decision-making under demand and supply uncertainty — particularly two-stage and multi-stage frameworks where the distribution itself is uncertain.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-num">03</div>
+          <h3>Demand & Supply Planning Systems</h3>
+          <p>Integration of advanced planning platforms like Kinaxis with formal optimization — bridging industrial planning software and rigorous analytical models for prescriptive decision support.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-num">04</div>
+          <h3>Data-Driven Decision Modeling</h3>
+          <p>Integration of machine learning with optimization for prescriptive analytics — moving from forecast-then-optimize toward jointly learned policies for large-scale industrial systems.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 03 — Experience</div>
-      <h2 class="section-title">From the <em>warehouse floor</em> to the model</h2>
-    </div>
-
-    <div class="timeline-entry reveal">
-      <div class="timeline-side">
-        <div class="timeline-date">June 2022 — Present</div>
-        <div class="timeline-location">Dhaka, Bangladesh</div>
-      </div>
-      <div>
-        <h3 class="timeline-role">Supply Service Executive</h3>
-        <div class="timeline-org">Reckitt Benckiser Bangladesh PLC</div>
-        <p class="timeline-desc">
-          Operational ownership of an international raw-material supply network for a multinational FMCG, with direct responsibility for planning, supplier coordination, and shortage avoidance.
-        </p>
-        <ul class="timeline-list">
-          <li><strong>Implemented Kinaxis-based multi-year strategic planning</strong> to optimize demand and supply forecasting, reducing the expiry of raw and finished goods by 15%.</li>
-          <li><strong>Manage import operations across twelve international suppliers</strong>, overseeing twenty-one critical raw materials that feed into ninety-four active SKUs.</li>
-          <li>Developed working expertise in demand planning, scenario modeling, and cross-functional project coordination under fluctuating market conditions.</li>
-          <li>Awarded the <strong>Reckitt Compass Values Award</strong> in 2024 for outstanding operational performance.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="timeline-entry reveal">
-      <div class="timeline-side">
-        <div class="timeline-date">March 2021 — April 2021</div>
-        <div class="timeline-location">Dhaka, Bangladesh</div>
-      </div>
-      <div>
-        <h3 class="timeline-role">Production Intern</h3>
-        <div class="timeline-org">Coats Bangladesh</div>
-        <p class="timeline-desc">
-          A short but formative immersion in industrial engineering practice on a working production floor.
-        </p>
-        <ul class="timeline-list">
-          <li>Applied 5S, Kaizen, and root-cause analysis methods to live production problems.</li>
-          <li>Proposed and implemented a Kaizen visualization board, contributing to a 2% improvement in quality and system efficiency.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 04 — Education</div>
+  <!-- § 03 EDUCATION (before experience) -->
+  <section id="education">
+    <div class="section-label"><span>§ 03</span> — Education</div>
+    <div class="section-grid">
       <h2 class="section-title">Foundations in <em>industrial systems</em></h2>
-    </div>
+      <div>
+        <div class="edu-block">
+          <div class="edu-institution">Military Institute of Science and Technology (MIST)</div>
+          <div class="edu-degree">B.Sc. in Industrial & Production Engineering</div>
+          <table class="edu-table">
+            <tr><td>Period</td><td>Feb 2018 — Mar 2022</td></tr>
+            <tr><td>Cumulative CGPA</td><td>3.31 / 4.00</td></tr>
+            <tr class="highlight-row"><td>Last 4 Semesters</td><td>3.61 / 4.00 (80 credits)</td></tr>
+            <tr><td>Key Coursework</td><td>Operations Research · Probability & Statistics · Supply Chain Management · Modeling & Simulation · Industrial Automation</td></tr>
+            <tr><td>Recognition</td><td>Dean's List of Honor (2020 — 5th & 6th Semester, GPA ≥ 3.75)</td></tr>
+          </table>
+        </div>
 
-    <div class="edu-grid reveal" style="border:1px solid var(--rule);">
-      <div class="edu-card">
-        <div class="edu-degree">B.Sc. in Industrial &<br>Production Engineering</div>
-        <div class="edu-school">Military Institute of Science and Technology (MIST)</div>
-        <div class="edu-detail">
-          <span class="edu-label">Period</span>
-          <span class="edu-value">Feb 2018 — Mar 2022</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">Cumulative CGPA</span>
-          <span class="edu-value">3.31 / 4.00</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">Last 4 Semesters</span>
-          <span class="edu-value">3.61 / 4.00 (80 credits)</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">Operations Research</span>
-          <span class="edu-value">4.00 / 4.00</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">Recognition</span>
-          <span class="edu-value">Dean's List of Honor (2020)</span>
-        </div>
-      </div>
-
-      <div class="edu-card">
-        <div class="edu-degree">Standardized<br>Examinations</div>
-        <div class="edu-school">Test scores for graduate admission</div>
-        <div class="edu-detail">
-          <span class="edu-label">GRE General</span>
-          <span class="edu-value">306 (Q 160 · V 146 · AWA 3.0)</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">IELTS Overall</span>
-          <span class="edu-value">7.0</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">IELTS Listening</span>
-          <span class="edu-value">7.5</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">IELTS Reading</span>
-          <span class="edu-value">7.0</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">IELTS Speaking</span>
-          <span class="edu-value">7.0</span>
-        </div>
-        <div class="edu-detail">
-          <span class="edu-label">IELTS Writing</span>
-          <span class="edu-value">6.5</span>
+        <div class="scores-grid">
+          <div class="score-block">
+            <div class="score-block-title">GRE General</div>
+            <div class="score-row"><span>Total</span><span>306</span></div>
+            <div class="score-row"><span>Quantitative</span><span>160</span></div>
+            <div class="score-row"><span>Verbal</span><span>146</span></div>
+            <div class="score-row"><span>AWA</span><span>3.0</span></div>
+          </div>
+          <div class="score-block">
+            <div class="score-block-title">IELTS</div>
+            <div class="score-row"><span>Overall</span><span>7.0</span></div>
+            <div class="score-row"><span>Listening</span><span>7.5</span></div>
+            <div class="score-row"><span>Reading</span><span>7.0</span></div>
+            <div class="score-row"><span>Speaking</span><span>7.0</span></div>
+            <div class="score-row"><span>Writing</span><span>6.5</span></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PUBLICATIONS & THESIS -->
-<section id="publications">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 05 — Research Output</div>
+  <!-- § 05 PUBLICATIONS & THESIS -->
+  <section id="publications">
+    <div class="section-label"><span>§ 04</span> — Research Output</div>
+    <div class="section-grid">
       <h2 class="section-title">Published and <em>archival</em> work</h2>
-    </div>
-
-    <div class="pub-entry reveal">
-      <div class="pub-meta">
-        <div class="pub-type">Book Chapter</div>
-        <div>Springer · 2024</div>
-      </div>
       <div>
-        <h3 class="pub-title">Laser Welding of Lightweight Alloys</h3>
-        <div class="pub-authors">A. Akther, N. Kabir, <strong>M. H. Takib</strong>, S. Rahman, M. E. Hoque</div>
-        <div class="pub-venue">In: <em>Joining Operations for Aerospace Materials</em>, Springer (2024)</div>
-        <p class="pub-summary">
-          Co-authored chapter examining the economic feasibility, processing characteristics, and sustainability profile of laser welding techniques applied to lightweight alloys in automotive, aerospace, and biomedical contexts.
-        </p>
+        <div class="pub-card">
+          <div class="pub-type">Book Chapter</div>
+          <div class="pub-venue">Springer · Joining Operations for Aerospace Materials · 2024</div>
+          <div class="pub-title">Laser Welding of Lightweight Alloys</div>
+          <div class="pub-authors">A. Akther, N. Kabir, <strong>M. H. Takib</strong>, S. Rahman, M. E. Hoque</div>
+          <div class="pub-abstract">Co-authored chapter examining advanced laser welding techniques for lightweight alloys in automotive, aerospace, and biomedical contexts. Analyzed critical parameters — welding speed, laser power, and material reflectivity — and their interactions to optimize joint quality, with emphasis on precision, adaptability, economic feasibility, and sustainability of laser processes in industrial joining operations.</div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-type">Undergraduate Thesis</div>
+          <div class="pub-venue">Military Institute of Science and Technology · 2022</div>
+          <div class="pub-title">High-Speed Machining of Inconel 718 Applying Nanofluid-Based Minimum Quantity Lubrication</div>
+          <div class="pub-authors"><strong>M. H. Takib</strong> — Sole Author</div>
+          <div class="pub-abstract">Designed and executed a Response Surface Methodology (RSM) study using Central Composite Design to optimize cutting parameters for a nickel-based superalloy under nanofluid-based MQL. Identified spindle speed, feed rate, and depth of cut as critical variables through ANOVA, then developed predictive models via RSM coupled with Genetic Algorithm (GA) in MATLAB to minimize surface roughness. Results validated through SEM and optical microscopy — an early exposure to optimization-under-constraints that motivated a pivot toward operations research.</div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="pub-entry reveal">
-      <div class="pub-meta">
-        <div class="pub-type">Undergraduate Thesis</div>
-        <div>MIST · 2022</div>
-      </div>
+  <!-- § 04 EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label"><span>§ 05</span> — Experience</div>
+    <div class="section-grid">
+      <h2 class="section-title">From the <em>planning desk</em> to the model</h2>
       <div>
-        <h3 class="pub-title">High-Speed Machining of Inconel 718 Applying Nanofluid-Based Minimum Quantity Lubrication</h3>
-        <div class="pub-authors">Sole author</div>
-        <div class="pub-venue">Military Institute of Science and Technology</div>
-        <p class="pub-summary">
-          Designed and executed a Response Surface Methodology study (Central Composite Design) to optimize cutting parameters for a nickel-based superalloy under nanofluid-based MQL. The work combined CNC machining trials, statistical modeling, and SEM-based surface analysis — an early exposure to experimental design and optimization-under-constraints that motivated my pivot toward operations research.
-        </p>
+
+        <div class="exp-entry">
+          <div class="exp-meta">June 2022 — Present · Dhaka, Bangladesh</div>
+          <div class="exp-title">Supply Services Executive</div>
+          <div class="exp-org">Reckitt Benckiser Bangladesh PLC</div>
+          <p class="exp-intro">Operational ownership of demand and supply planning for a multinational FMCG, including hands-on implementation of an advanced supply planning platform with Reckitt's global team.</p>
+          <ul class="exp-bullets">
+            <li><strong>Worked with Reckitt's global team to implement Kinaxis RapidResponse</strong> — one of the world's most advanced integrated supply planning platforms — enabling real-time supply chain visibility, AI-powered forecasting, and scenario-based planning across the Bangladesh operation.</li>
+            <li>Drove a <strong>15% reduction in inventory expiry</strong> of raw and finished goods through multi-year strategic demand and supply planning enabled by Kinaxis.</li>
+            <li>Improved <strong>forecast accuracy, cost efficiency, and market adaptability</strong> as direct outcomes of the Kinaxis-driven planning transformation.</li>
+            <li>Manage import operations across international suppliers, coordinating supply planning for critical raw materials feeding production.</li>
+            <li>Awarded the <strong>Reckitt Compass Values Award (2024)</strong> for outstanding operational performance.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-meta">March 2021 — April 2021 · Dhaka, Bangladesh</div>
+          <div class="exp-title">Production Intern</div>
+          <div class="exp-org">Coats Bangladesh</div>
+          <p class="exp-intro">A formative immersion in industrial engineering practice on a working production floor at a world-class thread manufacturer.</p>
+          <ul class="exp-bullets">
+            <li>Applied <strong>5S, Kaizen, and root-cause analysis</strong> methods to live production problems.</li>
+            <li>Proposed and implemented a <strong>Kaizen visualization board</strong>, contributing to an approximately 2% improvement in quality and system efficiency.</li>
+          </ul>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 06 — Technical Skills</div>
+  <!-- § 06 SKILLS -->
+  <section id="skills">
+    <div class="section-label"><span>§ 06</span> — Technical Skills</div>
+    <div class="section-grid">
       <h2 class="section-title">Tools of the <em>trade</em></h2>
+      <div class="skills-cols">
+        <div>
+          <div class="skill-group">
+            <div class="skill-group-title">Supply Planning & Software</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Kinaxis RapidResponse</span>
+              <span class="skill-tag">Demand & Supply Planning</span>
+              <span class="skill-tag">AI-Enabled Forecasting</span>
+              <span class="skill-tag">Scenario Modeling</span>
+              <span class="skill-tag">Import Operations Management</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Programming</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">MATLAB</span>
+              <span class="skill-tag">C</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group">
+            <div class="skill-group-title">Optimization & Simulation</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Linear & Mixed-Integer Programming</span>
+              <span class="skill-tag">Network Optimization</span>
+              <span class="skill-tag">Genetic Algorithm</span>
+              <span class="skill-tag">Arena Simulation</span>
+              <span class="skill-tag">Minitab</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Methodology</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Response Surface Methodology</span>
+              <span class="skill-tag">Statistical Modeling</span>
+              <span class="skill-tag">ANOVA</span>
+              <span class="skill-tag">Lean Six Sigma</span>
+              <span class="skill-tag">Kaizen & 5S</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="skills-table reveal">
-      <div class="skill-row">
-        <div class="skill-category">Programming</div>
-        <div class="skill-items">
-          <span class="pill">Python</span>
-          <span class="pill">MATLAB</span>
-          <span class="pill">C</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-category">Optimization &amp; Simulation</div>
-        <div class="skill-items">
-          <span class="pill">Arena</span>
-          <span class="pill">Minitab</span>
-          <span class="pill">Linear &amp; Mixed-Integer Programming (coursework)</span>
-          <span class="pill">Network Optimization (coursework)</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-category">Supply Chain Software</div>
-        <div class="skill-items">
-          <span class="pill">Kinaxis RapidResponse</span>
-          <span class="pill">Demand &amp; Supply Planning</span>
-          <span class="pill">Import Operations Management</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-category">Design &amp; Modeling</div>
-        <div class="skill-items">
-          <span class="pill">SolidWorks</span>
-          <span class="pill">CATIA</span>
-          <span class="pill">Experimental Design (RSM, CCD)</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-category">Methodology</div>
-        <div class="skill-items">
-          <span class="pill">Response Surface Methodology</span>
-          <span class="pill">Statistical Modeling</span>
-          <span class="pill">Lean Six Sigma fundamentals</span>
-          <span class="pill">Kaizen &amp; 5S</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HONORS & PROJECTS -->
-<section id="honors">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 07 — Honors &amp; Projects</div>
+  <!-- § 07 HONORS -->
+  <section id="honors">
+    <div class="section-label"><span>§ 07</span> — Honors & Projects</div>
+    <div class="section-grid">
       <h2 class="section-title">Recognition and <em>hands-on</em> work</h2>
-    </div>
-
-    <div class="twocol reveal">
       <div>
-        <h3>Awards &amp; Recognition</h3>
-        <ul class="item-list">
-          <li>
-            <strong>Reckitt Compass Values Award</strong>
-            <em>2024</em>
-            Outstanding operational performance in supply chain delivery.
-          </li>
-          <li>
-            <strong>Dean's List of Honor — MIST</strong>
-            <em>2020</em>
-            Awarded for sustained academic excellence (CGPA ≥ 3.70 at academic year end).
-          </li>
-          <li>
-            <strong>70% Scholarship — ISCEA Global SCM Competition</strong>
-            <em>Certified Supply Chain Analyst</em>
-            International recognition in supply chain management methodology.
-          </li>
-        </ul>
-      </div>
+        <div class="honors-section">
+          <div class="honor-item">
+            <div class="honor-year">2024</div>
+            <div class="honor-body">
+              <strong>Reckitt Compass Values Award</strong>
+              <span>Outstanding operational performance in supply chain delivery.</span>
+            </div>
+          </div>
+          <div class="honor-item">
+            <div class="honor-year">2020</div>
+            <div class="honor-body">
+              <strong>Dean's List of Honor — MIST</strong>
+              <span>Awarded for sustained academic excellence (CGPA ≥ 3.70 at academic year end).</span>
+            </div>
+          </div>
+          <div class="honor-item">
+            <div class="honor-year">2019</div>
+            <div class="honor-body">
+              <strong>70% Scholarship — ISCEA Global SCM Competition</strong>
+              <span>Certified Supply Chain Analyst (CSCA) — international recognition in supply chain management methodology.</span>
+            </div>
+          </div>
+        </div>
 
-      <div>
-        <h3>Selected Academic Projects</h3>
-        <ul class="item-list">
-          <li>
-            <strong>ARENA Simulation of an Industrial Process Control System</strong>
-            <em>Discrete-event simulation</em>
-            Modeled and analyzed throughput and queue dynamics under varying operating conditions.
-          </li>
-          <li>
-            <strong>Wooden Portable Lathe Machine — Design &amp; Build</strong>
-            <em>Mechanical design project</em>
-            Designed a low-cost, vibration-dampened lathe with reshapeable tooling for versatile applications.
-          </li>
-          <li>
-            <strong>3D Modeling of a Milling Machine — SolidWorks</strong>
-            <em>CAD project</em>
-            Complete parametric assembly with annotated technical drawings.
-          </li>
-        </ul>
+        <br>
+        <div class="section-label" style="margin-bottom:1.5rem;"><span>Selected Projects</span></div>
+        <div class="honors-section">
+          <div class="honor-item">
+            <div class="honor-year" style="font-size:0.62rem;">Simulation</div>
+            <div class="honor-body">
+              <strong>ARENA Simulation of an Industrial Process Control System</strong>
+              <span>Modeled and analyzed throughput and queue dynamics under varying operating conditions using discrete-event simulation.</span>
+            </div>
+          </div>
+          <div class="honor-item">
+            <div class="honor-year" style="font-size:0.62rem;">Design</div>
+            <div class="honor-body">
+              <strong>Wooden Portable Lathe Machine — Design & Build</strong>
+              <span>Designed a low-cost, vibration-dampened lathe with reshapeable tooling for versatile applications.</span>
+            </div>
+          </div>
+          <div class="honor-item">
+            <div class="honor-year" style="font-size:0.62rem;">CAD</div>
+            <div class="honor-body">
+              <strong>3D Modeling of a Milling Machine — SolidWorks</strong>
+              <span>Complete parametric assembly with annotated technical drawings.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- LEADERSHIP -->
-<section id="leadership">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-num">§ 08 — Leadership</div>
+  <!-- § 08 LEADERSHIP -->
+  <section id="leadership">
+    <div class="section-label"><span>§ 08</span> — Leadership</div>
+    <div class="section-grid">
       <h2 class="section-title">Service and <em>communication</em></h2>
-    </div>
-
-    <div class="reveal">
-      <div class="timeline-entry">
-        <div class="timeline-side">
-          <div class="timeline-date">2021 — 2022</div>
-          <div class="timeline-location">MIST, Dhaka</div>
+      <div class="lead-entries">
+        <div class="lead-entry">
+          <div class="lead-period">2021 — 2022<br>MIST Student Chapter</div>
+          <div class="lead-body">
+            <div class="lead-role">President, IEOM Student Chapter</div>
+            <div class="lead-org">Institute for Industrial Engineering & Operations Management — MIST</div>
+            <div class="lead-desc">Led the student chapter and partnered with the MIST Career Club to organize professional development sessions delivered by industry practitioners.</div>
+          </div>
         </div>
-        <div>
-          <h3 class="timeline-role">Departmental Representative</h3>
-          <div class="timeline-org">Industrial &amp; Production Engineering, MIST</div>
-          <p class="timeline-desc">
-            Coordinated communication between a 197-student class and the faculty regarding departmental events, examinations, and academic activities.
-          </p>
+        <div class="lead-entry">
+          <div class="lead-period">2021 — 2022<br>MIST, Dhaka</div>
+          <div class="lead-body">
+            <div class="lead-role">Departmental Representative</div>
+            <div class="lead-org">Industrial & Production Engineering, MIST</div>
+            <div class="lead-desc">Coordinated communication between a 197-student class and the faculty regarding departmental events, examinations, and academic activities.</div>
+          </div>
         </div>
-      </div>
-
-      <div class="timeline-entry">
-        <div class="timeline-side">
-          <div class="timeline-date">2021 — 2022</div>
-          <div class="timeline-location">MIST Student Chapter</div>
-        </div>
-        <div>
-          <h3 class="timeline-role">President, IEOM Student Chapter</h3>
-          <div class="timeline-org">Institute for Industrial Engineering &amp; Operations Management — MIST</div>
-          <p class="timeline-desc">
-            Led the student chapter and partnered with the MIST Career Club to organize professional development sessions delivered by industry practitioners.
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline-entry">
-        <div class="timeline-side">
-          <div class="timeline-date">2013 — 2014</div>
-          <div class="timeline-location">Khulna, Bangladesh</div>
-        </div>
-        <div>
-          <h3 class="timeline-role">Vice President, Red Cross &amp; Red Crescent Societies</h3>
-          <div class="timeline-org">Khulna Zilla School Unit</div>
-          <p class="timeline-desc">
-            Early service leadership in community engagement and humanitarian activities.
-          </p>
+        <div class="lead-entry">
+          <div class="lead-period">2013 — 2014<br>Khulna, Bangladesh</div>
+          <div class="lead-body">
+            <div class="lead-role">Vice President, Red Cross & Red Crescent Societies</div>
+            <div class="lead-org">Khulna Zilla School Unit</div>
+            <div class="lead-desc">Early service leadership in community engagement and humanitarian activities.</div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+</main>
+
+<!-- CONTACT -->
+<div class="contact-banner" id="contact">
+  <h2>Interested in <em>connecting</em><br>about graduate research</h2>
+  <p>Open to conversation with faculty, programs, and collaborators in IE, OR, and supply chain research.</p>
+  <div class="contact-btns">
+    <a href="mailto:mobasherhossaintakib@gmail.com?subject=Graduate%20Research%20Discussion" class="btn">Email Mobasher</a>
+    <a href="https://www.linkedin.com/in/mobasher-hossain-takib/" target="_blank" class="btn secondary">LinkedIn Profile</a>
   </div>
-</section>
-
-<!-- CONTACT / CTA -->
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="contact-label">— Open to Conversation —</div>
-    <h2 class="contact-title">
-      Interested in <em>connecting</em><br>about doctoral research
-    </h2>
-    <div class="contact-buttons">
-      <a href="mailto:mobasherhossaintakib@gmail.com?subject=Doctoral%20Research%20Discussion" class="btn btn-primary">Email Mobasher</a>
-      <a href="https://www.linkedin.com/in/mobasher-hossain-takib/" target="_blank" rel="noopener" class="btn">LinkedIn Profile</a>
-    </div>
-    <div class="contact-details">
-      <span>Phone · +880 1795 563511</span>
-      <a href="mailto:mobasherhossaintakib@gmail.com">mobasherhossaintakib@gmail.com</a>
-      <span>Dhaka, Bangladesh · GMT+6</span>
-    </div>
+  <div class="contact-meta">
+    <span>Phone · +880 1795 563511</span>
+    <span>mobasherhossaintakib@gmail.com</span>
+    <span>Dhaka, Bangladesh · GMT+6</span>
   </div>
-</section>
+</div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div>© 2026 · Mobasher Hossain Takib</div>
-      <div>Academic Portfolio · Last updated May 2026</div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Smooth scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+<footer>© 2026 · Mobasher Hossain Takib · Academic Portfolio · Last updated May 2026</footer>
 
 </body>
 </html>
+
