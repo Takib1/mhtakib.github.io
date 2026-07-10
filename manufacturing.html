@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Academic portfolio of Mobasher Hossain Takib — prospective PhD candidate in advanced materials processing and manufacturing, bridging experimental machining research and computational process optimization.">
+<title>Mobasher Hossain Takib — Materials Processing &amp; Manufacturing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFAF7;
+  --ink:#1B1E22;
+  --steel:#2B5A78;
+  --steel-deep:#1E4258;
+  --graphite:#5F6670;
+  --hairline:#E4E1DA;
+  --card:#FFFFFF;
+  --mono:'IBM Plex Mono',monospace;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'Public Sans',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+a{color:var(--steel);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+a:hover{border-bottom-color:var(--steel)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--steel);outline-offset:3px;border-radius:2px}
+em,i{font-style:italic}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:10;background:rgba(250,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
+.navin{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;color:var(--ink)}
+.navlinks{display:flex;gap:22px;flex-wrap:wrap}
+.navlinks a{font-size:.83rem;font-weight:500;color:var(--graphite);border:none}
+.navlinks a:hover{color:var(--steel)}
+
+/* ---------- hero ---------- */
+header{padding:76px 0 56px;border-bottom:1px solid var(--hairline)}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:18px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.08;letter-spacing:-.01em}
+h1 .lite{font-weight:400;font-style:italic;color:var(--steel-deep)}
+.lede{font-family:var(--serif);font-size:1.22rem;line-height:1.55;color:#333A42;max-width:44ch;margin-top:22px}
+.contactline{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font-size:.86rem;color:var(--graphite)}
+.contactline a{font-weight:500}
+
+/* signature: machining spec strip */
+.specstrip{margin-top:44px;border:1px solid var(--hairline);border-radius:6px;background:var(--card);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+.spec{padding:18px 20px;border-right:1px solid var(--hairline)}
+.spec:last-child{border-right:none}
+.spec .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.spec .v{font-family:var(--serif);font-weight:600;font-size:1.28rem;margin-top:4px;color:var(--ink)}
+.spec .v small{font-size:.8rem;font-weight:400;color:var(--graphite)}
+@media(max-width:680px){.specstrip{grid-template-columns:repeat(2,1fr)}.spec:nth-child(2){border-right:none}.spec:nth-child(1),.spec:nth-child(2){border-bottom:1px solid var(--hairline)}}
+
+/* ---------- sections ---------- */
+section{padding:60px 0;border-bottom:1px solid var(--hairline)}
+.seclabel{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.15rem);line-height:1.2;margin-bottom:26px}
+h2 i{font-weight:400;color:var(--steel-deep)}
+p+p{margin-top:16px}
+.prose{max-width:70ch}
+.prose strong{font-weight:600}
+
+/* research cards */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+.rcard{background:var(--card);border:1px solid var(--hairline);border-radius:6px;padding:24px 24px 26px;position:relative}
+.rcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--steel);border-radius:6px 0 0 6px}
+.rcard h3{font-family:var(--serif);font-size:1.12rem;font-weight:600;margin-bottom:10px}
+.rcard p{font-size:.93rem;color:#3A4048}
+
+/* education table */
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+td{padding:11px 14px;border:1px solid var(--hairline);vertical-align:top}
+td.k{width:200px;font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite);background:#F4F3EE}
+.edhead{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:4px}
+.edsub{color:var(--graphite);font-size:.92rem;margin-bottom:18px}
+
+.scorewrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+@media(max-width:680px){.scorewrap{grid-template-columns:1fr}}
+.scorebox{background:var(--card);border:1px solid var(--hairline);border-radius:6px;padding:18px 20px}
+.scorebox h4{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
+.scorerow{display:flex;justify-content:space-between;font-size:.9rem;padding:4px 0;border-bottom:1px dashed var(--hairline)}
+.scorerow:last-child{border-bottom:none}
+.scorerow b{font-family:var(--serif)}
+
+/* publications */
+.pub{background:var(--card);border:1px solid var(--hairline);border-radius:6px;padding:26px 28px;margin-bottom:18px}
+.pubtag{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--steel);padding:3px 9px;border-radius:3px;margin-bottom:12px}
+.pubvenue{font-size:.82rem;color:var(--graphite);margin-bottom:8px}
+.pub h3{font-family:var(--serif);font-size:1.22rem;font-weight:600;line-height:1.35;margin-bottom:8px}
+.pubauth{font-size:.88rem;color:#3A4048;margin-bottom:12px}
+.pub p.desc{font-size:.93rem;color:#3A4048}
+
+/* experience */
+.job{padding:22px 0;border-bottom:1px dashed var(--hairline)}
+.job:last-child{border-bottom:none}
+.jobmeta{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);margin-bottom:6px}
+.job h3{font-family:var(--serif);font-size:1.15rem;font-weight:600}
+.job .org{color:var(--steel);font-weight:500;font-size:.94rem;margin-bottom:10px}
+.job ul{margin:10px 0 0 18px;font-size:.93rem;color:#3A4048}
+.job li{margin-bottom:7px}
+
+/* skills */
+.skillgroup{margin-bottom:20px}
+.skillgroup h4{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.83rem;background:var(--card);border:1px solid var(--hairline);border-radius:99px;padding:5px 13px;color:#333A42}
+
+/* honors & projects */
+.hon{display:flex;gap:18px;padding:12px 0;border-bottom:1px dashed var(--hairline);font-size:.94rem}
+.hon:last-child{border-bottom:none}
+.hon .yr{font-family:var(--mono);font-size:.78rem;color:var(--graphite);min-width:48px;padding-top:2px}
+.projgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:760px){.projgrid{grid-template-columns:1fr}}
+.proj{background:var(--card);border:1px solid var(--hairline);border-radius:6px;padding:18px 20px}
+.proj .ptag{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
+.proj h4{font-family:var(--serif);font-size:.98rem;font-weight:600;margin:8px 0 6px}
+.proj p{font-size:.85rem;color:#3A4048}
+
+/* leadership */
+.lead{padding:14px 0;border-bottom:1px dashed var(--hairline);font-size:.94rem}
+.lead:last-child{border-bottom:none}
+.lead b{font-family:var(--serif)}
+.lead .sub{color:var(--graphite);font-size:.86rem}
+
+/* footer / contact */
+.cta{padding:70px 0 60px;text-align:left}
+.cta h2{margin-bottom:14px}
+.cta p{max-width:60ch;color:#3A4048}
+.btnrow{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-block;font-weight:600;font-size:.9rem;padding:11px 22px;border-radius:5px;border:1.5px solid var(--steel)}
+.btn.solid{background:var(--steel);color:#fff}
+.btn.solid:hover{background:var(--steel-deep);border-color:var(--steel-deep)}
+.btn.ghost{color:var(--steel)}
+.btn.ghost:hover{background:#EFF4F7}
+footer{padding:26px 0 40px;font-size:.8rem;color:var(--graphite)}
+footer .row{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* reveal */
+@media(prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap navin">
+  <span class="brand">M.H. Takib · Materials &amp; Manufacturing</span>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#education">Education</a>
+    <a href="#output">Research Output</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">Prospective PhD Candidate — 2027</div>
+  <h1>Mobasher Hossain <span class="lite">Takib</span></h1>
+  <p class="lede">Industrial and production engineer bridging advanced materials processing and computational process optimization.</p>
+  <div class="contactline">
+    <span>Dhaka, Bangladesh</span>
+    <a href="mailto:mobasherhossaintakib@gmail.com">mobasherhossaintakib@gmail.com</a>
+    <a href="https://www.linkedin.com/in/mobasher-hossain-takib/">LinkedIn ↗</a>
+    <span>+880 1795 563511</span>
+  </div>
+
+  <div class="specstrip" aria-label="Research at a glance">
+    <div class="spec"><div class="k">Thesis Material</div><div class="v">Inconel 718 <small>superalloy</small></div></div>
+    <div class="spec"><div class="k">Process Studied</div><div class="v">Nanofluid MQL <small>machining</small></div></div>
+    <div class="spec"><div class="k">Optimization</div><div class="v">RSM + GA <small>in MATLAB</small></div></div>
+    <div class="spec"><div class="k">Publication</div><div class="v">1 <small>Springer chapter</small></div></div>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <div class="seclabel">§ 01 — About</div>
+  <h2>Process parameters decide <i>everything</i></h2>
+  <div class="prose reveal">
+    <p>The lesson of my undergraduate research was simple and has stayed with me: in materials processing, the difference between a good outcome and a ruined one is rarely the material — it is the parameters. Spindle speed, feed rate, nanoparticle concentration, laser power. Small changes, large consequences, and far too many interacting variables to tune by intuition.</p>
+    <p>I am an <strong>Industrial and Production Engineering</strong> graduate from the <strong>Military Institute of Science and Technology (MIST)</strong>, Bangladesh. My thesis investigated <strong>high-speed machining of Inconel 718 under nanofluid-based Minimum Quantity Lubrication (MQL)</strong> — hands-on work with a nickel superalloy and nanoparticle-laden cutting fluids, optimized computationally using Response Surface Methodology and Genetic Algorithms. Alongside it, I co-authored a <strong>Springer book chapter on laser welding of lightweight alloys</strong>, deepening my interest in metal processing and joining.</p>
+    <p>Professionally, I work at <strong>Reckitt Benckiser Bangladesh</strong>, where implementing the Kinaxis RapidResponse planning platform has sharpened the same habits research demands: building models, validating them against noisy real data, and trusting them only when they earn it.</p>
+    <p>I am applying for 2027 admission to PhD programs in advanced materials processing, manufacturing, and mechanical engineering — and I welcome conversation with faculty working at the intersection of experiment and computation.</p>
+  </div>
+</div></section>
+
+<section id="research"><div class="wrap">
+  <div class="seclabel">§ 02 — Research Interests</div>
+  <h2>Where experiment meets <i>computation</i></h2>
+  <div class="grid2">
+    <div class="rcard reveal"><h3>Advanced Materials Processing</h3><p>Machining, welding, and printing processes where thermal and mechanical parameters govern material integrity — grounded in hands-on work with superalloys and lightweight alloys.</p></div>
+    <div class="rcard reveal"><h3>Additive Manufacturing &amp; Direct Ink Writing</h3><p>Printability of composite inks and nanoparticle-loaded materials — where ink formulation, rheology, and printing parameters form exactly the kind of multi-variable process space I studied in machining.</p></div>
+    <div class="rcard reveal"><h3>Process Optimization &amp; Computational Modeling</h3><p>RSM, ANOVA, metaheuristics, and simulation for navigating process-parameter spaces too complex for one-factor-at-a-time experimentation — in MATLAB and Python.</p></div>
+    <div class="rcard reveal"><h3>Nanomaterials &amp; Polymer Composites</h3><p>Behavior of nanoparticle-laden fluids and composites in demanding process environments, from cutting-zone tribology toward printable functional materials.</p></div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <div class="seclabel">§ 03 — Education</div>
+  <h2>Foundations in <i>manufacturing</i></h2>
+  <div class="edhead">Military Institute of Science and Technology (MIST)</div>
+  <div class="edsub">B.Sc. in Industrial &amp; Production Engineering</div>
+  <table class="reveal">
+    <tr><td class="k">Period</td><td>Feb 2018 — Mar 2022</td></tr>
+    <tr><td class="k">Cumulative CGPA</td><td>3.31 / 4.00</td></tr>
+    <tr><td class="k">Last 4 Semesters</td><td>3.61 / 4.00 (80 credits)</td></tr>
+    <tr><td class="k">Key Coursework</td><td>Manufacturing Processes · Material Science &amp; Engineering · Machine Tools · CAD/CAM · Modeling &amp; Simulation · Probability &amp; Statistics</td></tr>
+    <tr><td class="k">Recognition</td><td>Dean's List of Honor (2020 — 5th &amp; 6th Semester, GPA ≥ 3.75)</td></tr>
+  </table>
+  <div class="scorewrap">
+    <div class="scorebox reveal"><h4>GRE General</h4>
+      <div class="scorerow"><span>Total</span><b>306</b></div>
+      <div class="scorerow"><span>Quantitative</span><b>160</b></div>
+      <div class="scorerow"><span>Verbal</span><b>146</b></div>
+      <div class="scorerow"><span>AWA</span><b>3.0</b></div>
+    </div>
+    <div class="scorebox reveal"><h4>IELTS</h4>
+      <div class="scorerow"><span>Overall</span><b>7.0</b></div>
+      <div class="scorerow"><span>Listening</span><b>7.5</b></div>
+      <div class="scorerow"><span>Reading</span><b>7.0</b></div>
+      <div class="scorerow"><span>Speaking</span><b>7.0</b></div>
+      <div class="scorerow"><span>Writing</span><b>6.5</b></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="output"><div class="wrap">
+  <div class="seclabel">§ 04 — Research Output</div>
+  <h2>Published and <i>archival</i> work</h2>
+
+  <div class="pub reveal">
+    <span class="pubtag">Undergraduate Thesis</span>
+    <div class="pubvenue">Military Institute of Science and Technology · 2022</div>
+    <h3>High-Speed Machining of Inconel 718 Applying Nanofluid-Based Minimum Quantity Lubrication</h3>
+    <div class="pubauth"><strong>M. H. Takib</strong> — Sole Author</div>
+    <p class="desc">Designed and executed a Response Surface Methodology study using Central Composite Design to optimize cutting parameters for a nickel-based superalloy under nanofluid-based MQL. Identified spindle speed, feed rate, and depth of cut as critical variables through ANOVA, then developed predictive models via RSM coupled with a Genetic Algorithm in MATLAB to minimize surface roughness. Machined surfaces were characterized by SEM and optical microscopy to validate the models — combining hands-on experience with nanoparticle-laden fluids and computational optimization of a demanding manufacturing process.</p>
+  </div>
+
+  <div class="pub reveal">
+    <span class="pubtag">Book Chapter</span>
+    <div class="pubvenue">Springer · Joining Operations for Aerospace Materials · 2024</div>
+    <h3>Laser Welding of Lightweight Alloys</h3>
+    <div class="pubauth">A. Akther, N. Kabir, <strong>M. H. Takib</strong>, S. Rahman, M. E. Hoque</div>
+    <p class="desc">Co-authored chapter examining advanced laser welding techniques for lightweight alloys in automotive, aerospace, and biomedical contexts. Analyzed critical parameters — welding speed, laser power, and material reflectivity — and their interactions to optimize joint quality, with emphasis on precision, adaptability, economic feasibility, and sustainability of laser processes in industrial joining operations.</p>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="seclabel">§ 05 — Experience</div>
+  <h2>From the production floor to the <i>model</i></h2>
+
+  <div class="job reveal">
+    <div class="jobmeta">June 2022 — Present · Dhaka, Bangladesh</div>
+    <h3>Senior Supply Services Executive</h3>
+    <div class="org">Reckitt Benckiser Bangladesh PLC</div>
+    <ul>
+      <li>Working with Reckitt's global team to implement <strong>Kinaxis RapidResponse</strong> — building, validating, and running planning models against large, noisy operational datasets daily.</li>
+      <li>Drove a <strong>15% reduction in inventory expiry</strong> of raw and finished goods through data-driven multi-year planning.</li>
+      <li>Awarded the <strong>Reckitt Compass Values Award (2024)</strong> for outstanding operational performance.</li>
+    </ul>
+  </div>
+
+  <div class="job reveal">
+    <div class="jobmeta">March 2021 — April 2021 · Dhaka, Bangladesh</div>
+    <h3>Production Intern</h3>
+    <div class="org">Coats Bangladesh</div>
+    <ul>
+      <li>Immersion in manufacturing practice on a working production floor at a world-class thread manufacturer.</li>
+      <li>Applied <strong>5S, Kaizen, and root-cause analysis</strong> to live production problems; proposed and implemented a Kaizen visualization board contributing to an approximately 2% improvement in quality and system efficiency.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="seclabel">§ 06 — Technical Skills</div>
+  <h2>Tools of the <i>trade</i></h2>
+  <div class="skillgroup reveal"><h4>Materials &amp; Manufacturing</h4>
+    <div class="chips"><span class="chip">High-Speed Machining</span><span class="chip">Nanofluid MQL</span><span class="chip">Laser Welding (literature)</span><span class="chip">SEM &amp; Optical Microscopy</span><span class="chip">Surface Characterization</span></div>
+  </div>
+  <div class="skillgroup reveal"><h4>Experiment Design &amp; Optimization</h4>
+    <div class="chips"><span class="chip">Response Surface Methodology</span><span class="chip">Central Composite Design</span><span class="chip">ANOVA</span><span class="chip">Genetic Algorithms</span><span class="chip">Statistical Modeling</span><span class="chip">Minitab</span></div>
+  </div>
+  <div class="skillgroup reveal"><h4>Programming &amp; Simulation</h4>
+    <div class="chips"><span class="chip">MATLAB</span><span class="chip">Python</span><span class="chip">C</span><span class="chip">Arena Simulation</span><span class="chip">SolidWorks</span></div>
+  </div>
+  <div class="skillgroup reveal"><h4>Industry Methods &amp; Software</h4>
+    <div class="chips"><span class="chip">Kinaxis RapidResponse</span><span class="chip">Lean Six Sigma</span><span class="chip">Kaizen &amp; 5S</span><span class="chip">Data Analysis</span></div>
+  </div>
+</div></section>
+
+<section id="honors"><div class="wrap">
+  <div class="seclabel">§ 07 — Honors &amp; Projects</div>
+  <h2>Recognition and <i>hands-on</i> work</h2>
+  <div class="reveal">
+    <div class="hon"><span class="yr">2024</span><span><b>Reckitt Compass Values Award</b> — Outstanding operational performance in supply chain delivery.</span></div>
+    <div class="hon"><span class="yr">2020</span><span><b>Dean's List of Honor — MIST</b> — Awarded for sustained academic excellence.</span></div>
+    <div class="hon"><span class="yr">2019</span><span><b>70% Scholarship — ISCEA Global SCM Competition</b> — Certified Supply Chain Analyst (CSCA).</span></div>
+  </div>
+  <div class="projgrid">
+    <div class="proj reveal"><span class="ptag">Design &amp; Build</span><h4>Wooden Portable Lathe Machine</h4><p>Designed and built a low-cost, vibration-dampened lathe with reshapeable tooling for versatile machining applications.</p></div>
+    <div class="proj reveal"><span class="ptag">CAD</span><h4>3D Modeling of a Milling Machine — SolidWorks</h4><p>Complete parametric assembly with annotated technical drawings.</p></div>
+    <div class="proj reveal"><span class="ptag">Simulation</span><h4>ARENA Simulation of an Industrial Process Control System</h4><p>Modeled throughput and queue dynamics under varying operating conditions using discrete-event simulation.</p></div>
+  </div>
+</div></section>
+
+<section id="leadership"><div class="wrap">
+  <div class="seclabel">§ 08 — Leadership</div>
+  <h2>Service and <i>communication</i></h2>
+  <div class="reveal">
+    <div class="lead"><b>President, IEOM Student Chapter</b> — MIST · 2021–2022<div class="sub">Led the student chapter; organized professional development sessions with industry practitioners.</div></div>
+    <div class="lead"><b>Departmental Representative</b> — Industrial &amp; Production Engineering, MIST · 2021–2022<div class="sub">Coordinated communication between a 197-student class and the faculty.</div></div>
+    <div class="lead"><b>Vice President, Red Cross &amp; Red Crescent Societies</b> — Khulna Zilla School Unit · 2013–2014<div class="sub">Early service leadership in community engagement and humanitarian activities.</div></div>
+  </div>
+</div></section>
+
+<div class="cta wrap" id="contact">
+  <div class="seclabel">§ 09 — Contact</div>
+  <h2>Interested in <i>connecting</i> about graduate research</h2>
+  <p>Open to conversation with faculty, programs, and collaborators in advanced materials processing, manufacturing, and mechanical engineering.</p>
+  <div class="btnrow">
+    <a class="btn solid" href="mailto:mobasherhossaintakib@gmail.com?subject=Graduate%20Research%20Discussion">Email Mobasher</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/mobasher-hossain-takib/">LinkedIn Profile</a>
+  </div>
+</div>
+
+<footer><div class="wrap row">
+  <span>© 2026 · Mobasher Hossain Takib · Materials Processing &amp; Manufacturing</span>
+  <span>Dhaka, Bangladesh · GMT+6 · +880 1795 563511</span>
+</div></footer>
+
+<script>
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));return;}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+})();
+</script>
+</body>
+</html>
